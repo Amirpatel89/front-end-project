@@ -1,0 +1,47 @@
+#bgvid{
+	height: 100%;
+	width: 100%;
+}
+
+.overlay-diamond{
+	/*@media screen and (min-width: 1000px)
+	css__OrOz4ipTPl…G2fU2A.css:231*/
+    height: 26vw;
+    width: 26vw;
+    max-height: 420px;
+    max-width: 420px;
+    background: rgba(0,0,0,0.5);
+    height: 70vw;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+    transform: translate(-50%,-50%) rotate(-45deg);
+    width: 70vw;
+    z-index: 3
+}
+.overlay-content{
+	margin: 0 auto;
+    max-width: 280px;
+    position: absolute;
+    text-align: center;
+    width: 17vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 4;
+}
+.slogan{
+	color: white;
+}
+.logo{
+	color: white;
+}
+#logo-diamond{
+	color: #FBAC3D;
+}
+
+.my-lis{
+	padding: 15px;
+	list-style-type: none;
+}
