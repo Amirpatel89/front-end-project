@@ -1,11 +1,13 @@
+$('#myModal').modal()  
+  var where = navigator.geolocation.getCurrentPosition(function(position) {
+    // console.log(position.coords.latitude, position.coords.longitude);
+    console.log(`lat:  ${position.coords.latitude} lng: ${position.coords.longitude}`); 
+    // return(`lat:  ${position.coords.latitude} lng: ${position.coords.longitude}`); 
+    run()
 
-    
-        var where = navigator.geolocation.getCurrentPosition(function(position) {
-          // console.log(position.coords.latitude, position.coords.longitude);
-          console.log("lat: " + position.coords.latitude + "lng: " + position.coords.longitude); 
-          return(`lat:  ${position.coords.latitude} lng: ${position.coords.longitude}`); 
+});
+  function run(){
 
-      });
 
 
 
@@ -53,3 +55,4 @@
           infowindow.open(map, this);
         });
       }
+    }

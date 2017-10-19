@@ -4,17 +4,17 @@
 	<title>THE ST&#x2605R FOODIE</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css" href="styles.css">
-
-
 	<!-- jQuery  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<!-- google maps -->
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&callback=findPlaces&libraries=geometry,places"
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&callback=getWhere&libraries=geometry,places"
  async defer></script>
 <!-- &callback=findPlaces -->
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- BOOTSTRAP JS ^ -->
 <!-- custom JS -->
 <script type="text/javascript" src="scripts.js"></script>
 </head>
@@ -30,12 +30,34 @@
     	<div class="slogan">Where Restaurant Stars Matter</div>
     	<div class="item-list">
     		
-			<div class="my-list"><li class="get-directions"><a href="#" class="btn btn-warning btn-block">Get Directions</a></li></div>
+			<div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
+<!-- Get Directions Button -->
 			<div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block">Next Restaurant</a></li></div>
     		
     	</div>
     </div>
 <!-- The Center Diamond and Content ^ -->
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Fastest Directions</h4>
+        </div>
+        <div class="modal-body">	
+          <p>The google map should show up in here</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 	<footer>
 		<div class="container">
 			<div class="item-list-footer">
