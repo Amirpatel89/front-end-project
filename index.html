@@ -1,74 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Place searches</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 10px;
-        padding: 0px;
-      }
-    </style>
-    <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+<head>
+	<title>THE ST&#x2605R FOODIE</title>
 
-      var map;
-      var infowindow;
-      var restArray = [];
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-      function initMap() {33.8485720,-84.3735560
-        var pyrmont = {lat: 33.8485720, lng: -84.3735560};
+<link rel="stylesheet" type="text/css" href="styles.css">
+	<!-- jQuery  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: pyrmont,
-          zoom: 15
-        });
+	<!-- google maps -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&callback=getWhere&libraries=geometry,places"
+ async defer></script>
+<!-- &callback=findPlaces -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- BOOTSTRAP JS ^ -->
+<!-- custom JS -->
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+	<div id="map" class="col-xs-12"></div>
+	<video class="col-xs-12" autoplay preload="auto" loop id="bgvid">
+        <source src="http://centraarchy.com/new-york-prime/wp-content/uploads/sites/3/2016/09/New-York-Prime.mp4" type="video/mp4">
+    </video>
+<!-- The background video ^ -->
+    <div class="text-center overlay-diamond"></div>
+    <div class="overlay-content content">
+    	<div class="logo"><h2>THE ST<span class="logo-diamond">&#x2605</span>R FOODIE</h2></div>
+    	<div class="slogan">Where Restaurant Stars Matter</div>
+    	<div class="item-list">
+    		
+			<div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
+<!-- Get Directions Button -->
+			<div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block">Next Restaurant</a></li></div>
+    		
+    	</div>
+    </div>
+<!-- The Center Diamond and Content ^ -->
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Fastest Directions</h4>
+        </div>
+        <div class="modal-body">	
+          <p>The google map should show up in here</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
-        infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-          location: pyrmont,
-          radius: 500,
-          type: ['restaurant']
-        }, callback);
-      }
+	<footer>
+		<div class="container">
+			<div class="item-list-footer">
+				<ul class="footer-logos">
+					<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE ENTERTAINMENT</a></li>
+					<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE ADVERTISING</a></li>
+					<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE MEMBERS</a></li>
+					<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE SERVICES</a></li>
+				</ul>
+			</div><!-- <a class="footer-tags" href="#"></a> -->
+		</div>
+		<div class="container footer-text">
+		<p><!-- About us -->
+		On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best resurants that pay close attention to detail and excellent customer service are availible for your selection.</p></div>
+	</footer>
+<!-- The footer has two container divs ^ -->
 
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-            restArray.push(results[i]);
-          }
-        }
-      }
-      console.log(restArray);
 
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-      }
-    </script>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaCAjgogyXwRp7rBn_1O9KNmGl5rw4jI0&libraries=places&callback=initMap" async defer></script>
-  </body>
+
+
+
+
+
+
+
+
+<!-- <div id="container">
+	<div id="row">
+		<div id="Next-restaurant col-xs-12">
+			<button class="btn btn-primary btn-next">Try Something Else</button>
+		</div>
+	</div>
+	
+</div>	 -->
+
+</body>
 </html>
+
