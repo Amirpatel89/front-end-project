@@ -1,60 +1,68 @@
+  var map;
+  var infowindow;
+  var restArray = [];
 
-    
-        var where = navigator.geolocation.getCurrentPosition(function(position) {
-          // console.log(position.coords.latitude, position.coords.longitude);
-          console.log("lat: " + position.coords.latitude + "lng: " + position.coords.longitude); 
-          return(`lat:  ${position.coords.latitude} lng: ${position.coords.longitude}`); 
+function getWhere(){
+  var where = navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`);  
+      console.log(position);
+      initMap({ lat: position.coords.latitude, lng: position.coords.longitude })
+      // run();
+  },
+  // function(error) {
+  //   console.log(error);
+  //   if error.code == 1 {
 
-      });
+  //   }
+
+  );
+}
+
+// }
 
 
 
+function initMap(location) {
+          // var location = {where};   
+          // lat: 33.8485720, lng: -84.3735560
 
-      // var map;
-      // var infowindow;
-      // var restArray = [];
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: location,
+    zoom: 15
+  });
 
-      // function initMap() {
-      //   var location = {where};   
-      //   // lat: 33.8485720, lng: -84.3735560
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: location,
+    radius: 500000,
+    type: ['restaurant']
+  }, callback);
+}
 
-      //   map = new google.maps.Map(document.getElementById('map'), {
-      //     center: location,
-      //     zoom: 15
-      //   });
+function callback(results, status) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+      restArray.push(results[i]);
+    }
+    console.log(restArray)
+  }
+}
 
-      //   infowindow = new google.maps.InfoWindow();
-      //   var service = new google.maps.places.PlacesService(map);
-      //   service.nearbySearch({
-      //     location: location,
-      //     radius: 500,
-      //     type: ['restaurant']
-      //   }, callback);
-      // }
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
 
-      // function callback(results, status) {
-      //   if (status === google.maps.places.PlacesServiceStatus.OK) {
-      //     for (var i = 0; i < results.length; i++) {
-      //       createMarker(results[i]);
-      //       restArray.push(results[i]);
-      //     }
-      //   }
-      // }
-      //  console.log(restArray);
-      // function createMarker(place) {
-      //   var placeLoc = place.geometry.location;
-      //   var marker = new google.maps.Marker({
-      //     map: map,
-      //     position: place.geometry.location
-      //   });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
 
-      //   google.maps.event.addListener(marker, 'click', function() {
-      //     infowindow.setContent(place.name);
-      //     infowindow.open(map, this);
-      //   });
-      // }
-
-      
 
 
   
