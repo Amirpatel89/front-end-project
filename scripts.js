@@ -1,6 +1,8 @@
   var map;
   var infowindow;
   var restArray = [];
+  var sortedArray = [];
+
 
 function getWhere(){
   var where = navigator.geolocation.getCurrentPosition(function(position) {
@@ -28,25 +30,34 @@ function initMap(location) {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: location,
-    zoom: 15
+    zoom: 11
   });
 
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: location,
-    radius: 500000,
-    type: ['restaurant']
+    radius: 50000,
+    type: ['restaurant'],
   }, callback);
+
+
 }
 
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-      createMarker(results[i]);
-      restArray.push(results[i]);
+      if (results[i].rating >= 4){
+          // sortedArray.push(results[i]);
+        createMarker(results[i]);
+        restArray.push(results[i]);
+      }
     }
-    console.log(restArray)
+    var sorted = restArray.sort(function(a, b){
+    return(a.rating-b.rating)
+})
+    console.log(sorted.reverse())
+    // console.log(sortedArray)
   }
 }
 
@@ -62,6 +73,11 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
+
+
+
+
+
 
 
 
