@@ -1,7 +1,7 @@
   var map;
   var infowindow;
   var restArray = [];
-
+  var sortedResturants =[]
 function getWhere(){
   var where = navigator.geolocation.getCurrentPosition(function(position) {
       console.log(`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`);  
@@ -19,7 +19,23 @@ function getWhere(){
 }
 
 // }
+function sortRating(){
+  // var ratingVal = restArray[i].rating
 
+  for (var i = 0; i < restArray.length; i++) {
+    var firstrating = restArray[i].rating
+    for (var j = i + 1; j < restArray.length; j++) {
+      var secondrating = restArray[j].rating
+      if (firstrating < secondrating) {
+        var temp = restArray[i]
+        restArray[i] = restArray[j]
+        restArray[j] = temp
+        
+      }
+    }
+  }
+  console.log(restArray)
+}
 
 
 function initMap(location) {
@@ -47,6 +63,7 @@ function callback(results, status) {
       restArray.push(results[i]);
     }
     console.log(restArray)
+    sortRating()
   }
 }
 
