@@ -65,8 +65,10 @@ function callback(results, status) {
             var sortedArray = sorted
               counter = 0
             $('.go-to-next').click(function(){
-              counter = (counter + 1) % sortedArray.length;
-              console.log(sortedArray[counter]);
+              counter = (counter + 1) % sortedArray.length
+              var thisRest = (sortedArray[counter])
+              console.log(thisRest);
+              $('.name-of-restaurant').html(`${thisRest.name}`)
             })
 }
 function createMarker(place) {
