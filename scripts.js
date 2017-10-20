@@ -1,8 +1,7 @@
   var map;
   var infowindow;
   var restArray = [];
-  var sortedArray = [];
-
+  var sorted;
 
 function getWhere(){
   var where = navigator.geolocation.getCurrentPosition(function(position) {
@@ -51,16 +50,25 @@ function callback(results, status) {
           // sortedArray.push(results[i]);
         createMarker(results[i]);
         restArray.push(results[i]);
+            // for (var b = 0, b < restArray.length; b++)
+        }
       }
     }
-    var sorted = restArray.sort(function(a, b){
+    var reverseSorted = restArray.sort(function(a, b){
     return(a.rating-b.rating)
 })
-    console.log(sorted.reverse())
-    // console.log(sortedArray)
-  }
-}
+    sorted = reverseSorted.reverse();
+    console.log(sorted);
 
+}
+    function showRest () {
+            var sortedArray = sorted
+              counter = 0
+            $('.go-to-next').click(function(){
+              counter = (counter + 1) % sortedArray.length;
+              console.log(sortedArray[counter]);
+            })
+}
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
