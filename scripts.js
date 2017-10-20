@@ -1,8 +1,7 @@
   var map;
   var infowindow;
   var restArray = [];
-  var sortedArray = [];
-
+  var sorted;
 
 function getWhere(){
   var where = navigator.geolocation.getCurrentPosition(function(position) {
@@ -21,23 +20,7 @@ function getWhere(){
 }
 
 // }
-function sortRating(){
-  // var ratingVal = restArray[i].rating
 
-  for (var i = 0; i < restArray.length; i++) {
-    var firstrating = restArray[i].rating
-    for (var j = i + 1; j < restArray.length; j++) {
-      var secondrating = restArray[j].rating
-      if (firstrating < secondrating) {
-        var temp = restArray[i]
-        restArray[i] = restArray[j]
-        restArray[j] = temp
-        
-      }
-    }
-  }
-  console.log(restArray)
-}
 
 
 function initMap(location) {
@@ -71,17 +54,11 @@ function callback(results, status) {
         }
       }
     }
-    var sorted = restArray.sort(function(a, b){
-    return(a.rating-b.rating)
-})
-    console.log(sorted.reverse())
-    // console.log(sortedArray)
     var reverseSorted = restArray.sort(function(a, b){
     return(a.rating-b.rating)
 })
     sorted = reverseSorted.reverse();
     console.log(sorted);
-
 
 }
     function showRest () {
@@ -110,7 +87,7 @@ function createMarker(place) {
 
 
 
-
+// ads;fjd;lsfj
 
 
 
