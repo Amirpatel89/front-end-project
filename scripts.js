@@ -2,7 +2,7 @@
   var infowindow;
   var restArray = [];
   var sorted;
-  // var placeDetails = [];
+  var globalThisLocation = [];
   
 
 
@@ -16,7 +16,7 @@ function getWhere(){
       // var defaultLocation = {lat: 36.169941, lng: -115.139830};
       // console.log(defaultLocation);
       initMap(thisLocation);
-
+      globalThisLocation.push(thisLocation)
 
 
       // initMap(thisLocation);
@@ -163,6 +163,7 @@ function createMarker(place) {
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
+    infowindow.setContent(globalThisLocation[0]);
   });
 }
 
