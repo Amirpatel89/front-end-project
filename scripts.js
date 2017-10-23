@@ -2,7 +2,7 @@
   var infowindow;
   var restArray = [];
   var sorted;
-  var placeDetails = [];
+  // var placeDetails = [];
   var globalThisRest = [];
 
 
@@ -91,23 +91,23 @@ function callback(results, status) {
             // console.log(thisRest);
             // $('.name-of-restaurant').html(`${thisRest.name}`);
             // $('.rating-of-restaurant').html(`Rating: ${thisRest.rating} Stars`);
+              // var photo = $('.photo-of-restaurant').prepend('<img id="thePhoto" src=""https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + "`${thisRest.reference}`" + "&key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk"" />');
+              // console.log(photo);
             var service = new google.maps.places.PlacesService(map);
                 service.getDetails({placeId: `${thisRest.place_id}`}, function(place, status) {
                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    var photoUrl = place.photos[0].getUrl({maxWidth: 150});
+                    $('.photo-of-restaurant').html( `<img src= ${photoUrl}>`);
+                    console.log(place.photos[5].getUrl({maxWidth: 150}));
+                    var reviewCaption = place.reviews[0].text;
+                    $('.review-of-restaurant').html(reviewCaption);
                     console.log(place);
-                    placeDetails.push(`${place.photos[0]}`);
-                    var photo = [];
-                    photo.push(`${place.photos[0]}`)
-                    $('.photo-of-restaurant').html(`${place.photos[0]}`);
-                    console.log(photo);
-                    console.log(placeDetails);
-                    // $('.photo-of-restaurant').html(placeDetails);
-
-                    };
 
 
 
                     };
+
+
 
 
             });
@@ -119,12 +119,22 @@ function callback(results, status) {
                  
 
 
-
                
 
               
 
 
+            // });
+            // $('.go-back').click(function goBack(){
+            //   console.log("hlkjdsf");
+              // counter = (counter - 1) % sortedArray.length
+              // var thisRest = (sortedArray[counter])
+              // console.log(thisRest);
+              // $('.name-of-restaurant').html(`${thisRest.name}`);
+              // $('.rating-of-restaurant').html(`Rating: ${thisRest.rating} Stars`);
+                 // if(counter == 0){
+                 //   counter == sortedArray.length-1
+                 // };
                  
             //       else {
             //           counter=counter-1
