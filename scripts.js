@@ -115,10 +115,6 @@ function callback(results, status) {
 
 
                     };
-
-
-
-
             });
 
         });
