@@ -139,9 +139,16 @@ function createMarker(place) {
     map: map,
     position: place.geometry.location
   });
+  var image = 'https://i.imgur.com/FRSwoOV.gif'
+  
   var marker = new google.maps.Marker({
   map: map,
-  position: globalThisLocation[0]
+  position: globalThisLocation[0],
+  icon: image,
+  animation: google.maps.Animation.DROP,
+  draggable: false,
+  optimized:false 
+
    
   });
 
@@ -152,7 +159,6 @@ function createMarker(place) {
 
   });
 }
-
 
 
 
