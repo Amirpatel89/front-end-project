@@ -20,7 +20,6 @@
 <!-- custom JS -->
 <script type="text/javascript" src="scripts.js"></script>
 <script src="">="https://maps.googleapis.com/maps/api/place/details/json?placeid=" + `${thisRest.place_id}` + "&key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&libraries=places"</script>
-
 </head>
 <body>
   <div id="map" class="col-xs-12"></div>
@@ -37,18 +36,20 @@
       <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
 <!-- Get Directions Button -->
       <div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
-      <div class="my-list"><li class="go-back"><a href="#" class="btn btn-warning btn-block" onclick="goBack()">Go Back</a></li></div>
+      <div class="my-list"><li class="go-back"><a href="#" class="btn btn-warning btn-block">Go Back</a></li></div>
       <div class="name-of-restaurant">
       </div>
       <div class="rating-of-restaurant">
       </div>
       <div class="photo-of-restaurant">
       </div>
-      <div class="review-of-restaurant">
-      </div>
+<!--       <div class="review-of-restaurant">
+      </div> -->
+
     
       </div>
     </div>
+
 <!-- The Center Diamond and Content ^ -->
     <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">

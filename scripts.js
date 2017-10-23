@@ -3,7 +3,7 @@
   var restArray = [];
   var sorted;
   // var placeDetails = [];
-  var globalThisRest = [];
+  
 
 
 
@@ -73,15 +73,27 @@ function callback(results, status) {
 }
     function showRest () {
             var sortedArray = sorted
-              counter = 0
+              counter = 0;
+              globalCounter = [];
+            var globalThisRest = [];
             $('.go-to-next').click(function(){
               counter = (counter + 1) % sortedArray.length
               var thisRest = (sortedArray[counter]);
-              console.log(thisRest);
+              // console.log(thisRest);
               globalThisRest.push(thisRest);
+              console.log(globalThisRest[0]);
+              globalCounter.push(counter);
 
-            $('.name-of-restaurant').html(`${thisRest.name}`);
-            $('.rating-of-restaurant').html(`Rating: ${thisRest.rating} Stars`);
+            $('.go-back').click(function(){
+              counter2 = (globalCounter[0] - 1) % sortedArray.length
+              var newRest = (sortedArray[counter2]);
+              // console.log(newRest);
+              globalThisRest.push(newRest);
+              console.log(globalThisRest[0]);
+            });
+
+            $('.name-of-restaurant').html(`${globalThisRest[0].name}`);
+            $('.rating-of-restaurant').html(`Rating: ${globalThisRest[0].rating} Stars`);
 
 
             // $('reset-button').click(function reset(){
@@ -98,7 +110,7 @@ function callback(results, status) {
                    if (status == google.maps.places.PlacesServiceStatus.OK) {
                     var photoUrl = place.photos[0].getUrl({maxWidth: 150});
                     $('.photo-of-restaurant').html( `<img src= ${photoUrl}>`);
-                    console.log(place.photos[5].getUrl({maxWidth: 150}));
+                    // console.log(place.photos[5].getUrl({maxWidth: 150}));
                     var reviewCaption = place.reviews[0].text;
                     $('.review-of-restaurant').html(reviewCaption);
                     console.log(place);
