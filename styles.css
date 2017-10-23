@@ -1,18 +1,18 @@
 #map{
-	height: 1000px;
-	/*display: none;*/
-	
+    height: 1000px;
+    /*display: none;*/
+    
 }
 #bgvid{
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    background-size: cover;
 }
 
 .overlay-diamond{
-	/*@media screen and (min-width: 1000px)
-	css__OrOz4ipTPl…G2fU2A.css:231*/
+    /*@media screen and (min-width: 1000px)
+    css__OrOz4ipTPl…G2fU2A.css:231*/
     height: 26vw;
     width: 26vw;
     max-height: 420px;
@@ -28,7 +28,7 @@
     z-index: 1
 }
 .overlay-content{
-	margin: 0 auto;
+    margin: 0 auto;
     max-width: 280px;
     position: absolute;
     text-align: center;
@@ -39,23 +39,23 @@
     z-index: 2;
 }
 .slogan{
-	color: white;
+    color: white;
 }
 .logo{
-	color: white;
+    color: white;
 }
 .logo-diamond{
-	color: #FBAC3D;
+    color: #FBAC3D;
 }
 
 .my-list{
-	padding: 15px;
-	list-style-type: none;
+    padding: 15px;
+    list-style-type: none;
 }
 footer{
-	right: 0;
+    right: 0;
     top: auto;
-	bottom: 0;
+    bottom: 0;
     left: 0;
     position: fixed;
     width: 100%;
@@ -66,30 +66,43 @@ footer{
 
 }
 .footer-tags{
-	color: white;
+    color: white;
 }
 .footer-tags:visited{
-	color: white;
+    color: white;
 }
 .footer-tags:hover{ 
-	color: #FBAC3D;
+    color: #FBAC3D;
 }
 .footer-tags:active{
-	color: #FBAC3D;
+    color: #FBAC3D;
 }
 
 ul > li{
-	color: white;
-	font-size: 110%;
-	text-align: left;
-	display: inline-block;
-	font-style: oblique;
+    color: white;
+    font-size: 110%;
+    text-align: left;
+    display: inline-block;
+    font-style: oblique;
 }
 p{
-	color: white;
-	font-style: oblique;
-	text-align: center;
+    color: white;
+    font-style: oblique;
+    text-align: center;
 }
 .modal-body>p{
-	color: red;
+    color: red;
+}
+
+.name-of-restaurant{
+    color: gold;
+}
+
+.rating-of-restaurant{
+    color: gold;
+}
+.photo-of-restaurant{
+    height: 200px;
+    width: 100%;
+    color:  gold;   
 }
