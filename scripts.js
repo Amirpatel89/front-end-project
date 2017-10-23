@@ -7,6 +7,7 @@
 
 $(document).ready(function() {
     $(".go-to-next").hide();
+    $(".review-header").hide();
 });
 
 function getWhere(){
@@ -20,7 +21,8 @@ function getWhere(){
       initMap(thisLocation);
       globalThisLocation.push(thisLocation);
       $(".please-enable").hide();
-       $(".go-to-next").show();
+      $(".go-to-next").show();
+
 
 
 
@@ -99,6 +101,7 @@ function callback(results, status) {
 
             $('.name-of-restaurant').html(`${globalThisRest[0].name}`);
             $('.rating-of-restaurant').html(`Rating: ${globalThisRest[0].rating} Stars`);
+            $(".review-header").show();
 
 
          
@@ -133,6 +136,7 @@ function callback(results, status) {
               
 
 
+
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
@@ -159,6 +163,7 @@ function createMarker(place) {
 
   });
 }
+
 
 
 
