@@ -12,12 +12,12 @@ function getWhere(){
       console.log(thisLocation);
       console.log(position);
       var defaultLocation = {lat: 36.169941, lng: -115.139830};
-      console.log(defaultLocation);
-      initMap(defaultLocation);
+      // console.log(defaultLocation);
+      initMap(thisLocation);
 
 
 
-      // initMap(thisLocation);
+
 
      
     
