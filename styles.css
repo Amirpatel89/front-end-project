@@ -23,10 +23,9 @@
     left: 50%;
     position: absolute;
     top: 50%;
-    /*-webkit-transform: translate(-50%,-50%) rotate(-45deg);*/
     transform: translate(-50%,-50%) rotate(-45deg);
     width: 70vw;
-    z-index: 2
+    z-index: 0;
 }
 .overlay-content{
     margin: 0 auto;
@@ -37,7 +36,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    z-index: 0;
 }
 .slogan{
     color: white;
@@ -62,7 +61,7 @@ footer{
     width: 100%;
     background-color: rgba(0,0,0,0.9);
     padding: 0;
-    z-index: 2;
+    z-index: 0;
     margin-top: -5px;
 
 }

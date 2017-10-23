@@ -90,24 +90,24 @@ function callback(results, status) {
             // $('.rating-of-restaurant').html(`Rating: ${thisRest.rating} Stars`);
             //   // var photo = $('.photo-of-restaurant').prepend('<img id="thePhoto" src=""https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + "`${thisRest.reference}`" + "&key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk"" />');
             //   // console.log(photo);
-            // var service = new google.maps.places.PlacesService(map);
-            //     service.getDetails({placeId: `${thisRest.place_id}`}, function(place, status) {
-            //        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            //         console.log(place);
-            //         // placeDetails.push(place.photos[0]);
-            //         var photo = [];
-            //         photo.push(`${place.photos[counter]}`)
-            //         // $('.photo-of-restaurant').html(`${place.photos[0]}`);
-            //         $('.photo-of-restaurant').html(JSON.stringify(photo));
+            var service = new google.maps.places.PlacesService(map);
+                service.getDetails({placeId: `${thisRest.place_id}`}, function(place, status) {
+                   if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    console.log(place);
+                    // placeDetails.push(place.photos[0]);
+                    var photo = [];
+                    photo.push(`${place.photos[counter]}`)
+                    // $('.photo-of-restaurant').html(`${place.photos[0]}`);
+                    $('.photo-of-restaurant').html(JSON.stringify(photo));
 
 
-
+                    };
 
                 
 
 
-            //       }
-            //     });
+                  })
+                });
             
 
 
@@ -116,7 +116,7 @@ function callback(results, status) {
               
 
 
-            // });
+            };
             // $('.go-back').click(function(){
             //   counter = (counter - 1) % sortedArray.length
             //   var thisRest = (sortedArray[counter])
