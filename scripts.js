@@ -2,15 +2,27 @@
   var infowindow;
   var restArray = [];
   var sorted;
+  var placeDetails = [];
+
 
 function getWhere(){
-  var where = navigator.geolocation.getCurrentPosition(function(position) {
-      var userLocation = (`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`)
-      console.log(userLocation);  
+      navigator.geolocation.getCurrentPosition(function(position) {
+      // console.log(`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`);
+      var thisLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
+      console.log(thisLocation);
       console.log(position);
-      initMap({ lat: position.coords.latitude, lng: position.coords.longitude })
-      // run();
+      var defaultLocation = {lat: 36.169941, lng: -115.139830};
+      console.log(defaultLocation);
+      initMap(defaultLocation);
+
+
+
+      // initMap(thisLocation);
+
+     
+    
   },
+
 
   );
 }
@@ -62,25 +74,80 @@ function callback(results, status) {
               counter = 0
             $('.go-to-next').click(function(){
               counter = (counter + 1) % sortedArray.length
-              var thisRest = (sortedArray[counter])
-              console.log(thisRest );
-              $('.name-of-restaurant').html(`${thisRest.name}`)
-            })
+              var thisRest = (sortedArray[counter]);
+              console.log(thisRest);
+            $('.name-of-restaurant').html(`${thisRest.name}`);
+            $('.rating-of-restaurant').html(`Rating: ${thisRest.rating} Stars`);
+
+
+            });
+            // $('reset-button').click(function(){
+            // sortedArray.length =0
+            // counter = 0
+            // var thisRest = (sortedArray[counter]);
+            // console.log(thisRest);
+            // $('.name-of-restaurant').html(`${thisRest.name}`);
+            // $('.rating-of-restaurant').html(`Rating: ${thisRest.rating} Stars`);
+            //   // var photo = $('.photo-of-restaurant').prepend('<img id="thePhoto" src=""https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + "`${thisRest.reference}`" + "&key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk"" />');
+            //   // console.log(photo);
+            // var service = new google.maps.places.PlacesService(map);
+            //     service.getDetails({placeId: `${thisRest.place_id}`}, function(place, status) {
+            //        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            //         console.log(place);
+            //         // placeDetails.push(place.photos[0]);
+            //         var photo = [];
+            //         photo.push(`${place.photos[counter]}`)
+            //         // $('.photo-of-restaurant').html(`${place.photos[0]}`);
+            //         $('.photo-of-restaurant').html(JSON.stringify(photo));
+
+
+
+
+                
+
+
+            //       }
+            //     });
+            
+
+
+               
+
+              
+
+
+            // });
+            // $('.go-back').click(function(){
+            //   counter = (counter - 1) % sortedArray.length
+            //   var thisRest = (sortedArray[counter])
+            //   console.log(thisRest);
+            //   $('.name-of-restaurant').html(`${thisRest.name}`);
+            //   $('.rating-of-restaurant').html(`Rating: ${thisRest.rating} Stars`);
+            //      // if(counter == 0){
+            //      //   counter == sortedArray.length-1
+            //      // };
+                 
+            //      //  else {
+            //      //      counter=counter-1
+            //      //  };
+            // });
 }
 function createMarker(place) {
-  // var placeLoc = place.geometry.location;
+  var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
-  var infowindowHTML = `<h2>hi</h2>`
-  infowindowHTML += '<img src="usersLocationGif.mp4">'
-  var youAreHere = (`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`)
+
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
   });
 }
+
+
+
+
 
 
 
