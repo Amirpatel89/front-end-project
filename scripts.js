@@ -98,10 +98,10 @@ function callback(results, status) {
                     placeDetails.push(`${place.photos[0]}`);
                     var photo = [];
                     photo.push(`${place.photos[0]}`)
-                    // $('.photo-of-restaurant').html(`${place.photos[0]}`);
+                    $('.photo-of-restaurant').html(`${place.photos[0]}`);
                     console.log(photo);
                     console.log(placeDetails);
-                    $('.photo-of-restaurant').html(placeDetails);
+                    // $('.photo-of-restaurant').html(placeDetails);
 
                     };
 
