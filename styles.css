@@ -107,5 +107,9 @@ p{
     color:  gold;   
 }
 .review-of-restaurant{
-    color:  gold;
+    color:  black;
+    background-color: #FBAC3D;
+}
+.please-enable{
+    color: #FBAC3D;
 }
