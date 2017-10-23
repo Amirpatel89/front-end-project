@@ -5,7 +5,9 @@
   var globalThisLocation = [];
   
 
-
+$(document).ready(function() {
+    $(".go-to-next").hide();
+});
 
 function getWhere(){
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -16,7 +18,10 @@ function getWhere(){
       // var defaultLocation = {lat: 36.169941, lng: -115.139830};
       // console.log(defaultLocation);
       initMap(thisLocation);
-      globalThisLocation.push(thisLocation)
+      globalThisLocation.push(thisLocation);
+      $(".please-enable").hide();
+       $(".go-to-next").show();
+
 
 
       // initMap(thisLocation);
