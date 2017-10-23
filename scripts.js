@@ -5,16 +5,12 @@
 
 function getWhere(){
   var where = navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`);  
+      var userLocation = (`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`)
+      console.log(userLocation);  
       console.log(position);
       initMap({ lat: position.coords.latitude, lng: position.coords.longitude })
       // run();
   },
-  // function(error) {
-  //   console.log(error);
-  //   if error.code == 1 {
-
-  //   }
 
   );
 }
@@ -67,17 +63,19 @@ function callback(results, status) {
             $('.go-to-next').click(function(){
               counter = (counter + 1) % sortedArray.length
               var thisRest = (sortedArray[counter])
-              console.log(thisRest);
+              console.log(thisRest );
               $('.name-of-restaurant').html(`${thisRest.name}`)
             })
 }
 function createMarker(place) {
-  var placeLoc = place.geometry.location;
+  // var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
-
+  var infowindowHTML = `<h2>hi</h2>`
+  infowindowHTML += '<img src="usersLocationGif.mp4">'
+  var youAreHere = (`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`)
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);
     infowindow.open(map, this);
@@ -87,7 +85,7 @@ function createMarker(place) {
 
 
 
-// ads;fjd;lsfj
+
 
 
 
