@@ -100,6 +100,7 @@ function callback(results, status) {
                     $('.photo-of-restaurant').html( `<img src= ${photoUrl}>`);
                     console.log(place.photos[5].getUrl({maxWidth: 150}));
                     var reviewCaption = place.reviews[0].text;
+                    $('.review-of-restaurant').html(reviewCaption);
                     console.log(place);
 
 

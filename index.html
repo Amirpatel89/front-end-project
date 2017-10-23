@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>THE ST&#x2605R FOODIE</title>
+  <title>THE ST&#x2605R FOODIE</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="styles.css">
-	<!-- jQuery  -->
+  <!-- jQuery  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<!-- google maps -->
+  <!-- google maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&callback=getWhere&libraries=geometry,places"
  async defer></script>
 
@@ -23,30 +23,31 @@
 
 </head>
 <body>
-	<div id="map" class="col-xs-12"></div>
-	<video class="col-xs-12" autoplay preload="auto" loop id="bgvid">
+  <div id="map" class="col-xs-12"></div>
+  <video class="col-xs-12" autoplay preload="auto" loop id="bgvid">
         <source src="http://centraarchy.com/new-york-prime/wp-content/uploads/sites/3/2016/09/New-York-Prime.mp4" type="video/mp4">
   </video>
 <!-- The background video ^ -->
     <div class="text-center overlay-diamond"></div>
     <div class="overlay-content content">
-    	<div class="logo"><h2>THE ST<span class="logo-diamond">&#x2605</span>R FOODIE</h2></div>
-    	<div class="slogan">Where Restaurant Stars Matter</div>
-    	<div class="item-list">
-    		
-			<div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
+      <div class="logo"><h2>THE ST<span class="logo-diamond">&#x2605</span>R FOODIE</h2></div>
+      <div class="slogan">Where Restaurant Stars Matter</div>
+      <div class="item-list">
+        
+      <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
 <!-- Get Directions Button -->
-			<div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
-     <!--  <div class="my-list"><li class="go-back"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Go Back</a></li></div>
-      <div class="my-list"><li class="reset-button"><a href="#" class="btn btn-warning btn-block" onclick="reset()">Reset</a></li></div> -->
+      <div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
+      <div class="my-list"><li class="go-back"><a href="#" class="btn btn-warning btn-block" onclick="goBack()">Go Back</a></li></div>
       <div class="name-of-restaurant">
       </div>
       <div class="rating-of-restaurant">
       </div>
       <div class="photo-of-restaurant">
       </div>
+      <div class="review-of-restaurant">
+      </div>
     
-    	</div>
+      </div>
     </div>
 <!-- The Center Diamond and Content ^ -->
     <!-- Modal -->
@@ -59,7 +60,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Fastest Directions</h4>
         </div>
-        <div class="modal-body">	
+        <div class="modal-body">  
           <p>The google map should show up in here</p>
         </div>
         <div class="modal-footer">
@@ -70,26 +71,24 @@
     </div>
   </div>
 
-	
-		<footer>
-			<!-- <div class="container"> -->
-				<div class="row">
-					<div class="col-sm-12 text-center item-list-footer">
-						<ul class="footer-logos">
-							<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE ENTERTAINMENT</a></li>
-							<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE ADVERTISING</a></li>
-							<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE MEMBERS</a></li>
-							<li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE SERVICES</a></li>
-						</ul>
-					</div>
-				</div>
-			<!-- </div> -->
-			<div class="container footer-text">
-			<p><!-- About us -->
-			On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best resurants that pay close attention to detail and excellent customer service are availible for your selection.</p></div>
-		</footer>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center item-list-footer">
+          <ul class="footer-logos">
+            <li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE ENTERTAINMENT</a></li>
+            <li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE ADVERTISING</a></li>
+            <li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE MEMBERS</a></li>
+            <li class="my-list"><a href="#" class="footer-tags">THE ST<span class="logo-diamond">&#x2605</span>R FOODIE SERVICES</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-text">
+    <p><!-- About us -->
+    On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best resurants that pay close attention to detail and excellent customer service are availible for your selection.</p></div>
+  </footer>
 <!-- The footer has two container divs ^ -->
-	
 
 
 
@@ -102,13 +101,13 @@
 
 
 <!-- <div id="container">
-	<div id="row">
-		<div id="Next-restaurant col-xs-12">
-			<button class="btn btn-primary btn-next">Try Something Else</button>
-		</div>
-	</div>
-	
-</div>	 -->
+  <div id="row">
+    <div id="Next-restaurant col-xs-12">
+      <button class="btn btn-primary btn-next">Try Something Else</button>
+    </div>
+  </div>
+  
+</div>   -->
 
 </body>
 </html>
