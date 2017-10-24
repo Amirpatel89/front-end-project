@@ -25,3 +25,7 @@ Jquery
 Bootstrap
 
 
+3 contributions worth adding to this project:
+1. add in a google api for diretions from the users location to the chosen restaurant 
+2. place the google map placed into a modal instead of on the opening page.
+3. 
