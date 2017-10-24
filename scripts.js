@@ -4,6 +4,7 @@
   var sorted;
   var globalThisLocation = [];
   var map2;
+  var globalEndpoint = [];
   
 
 $(document).ready(function() {
@@ -115,6 +116,7 @@ function callback(results, status) {
                     var reviewCaption = place.reviews[0].text;
                     $('.review-of-restaurant').html(reviewCaption);
                     console.log(place);
+                    globalEndpoint.push(globalThisRest);
 
 
 
@@ -167,12 +169,12 @@ function createMarker(place) {
 
 
 
-      function initMap2() {
+function initMap2() {
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map2 = new google.maps.Map(document.getElementById('map2'), {
           zoom: 7,
-          center: {lat: 41.85, lng: -87.65}
+          center: globalThisLocation[0]
         });
         directionsDisplay.setMap(map2);
 
@@ -185,17 +187,21 @@ function createMarker(place) {
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         directionsService.route({
-          origin: document.getElementById('start').value,
+          origin: globalThisLocation[0],
           destination: document.getElementById('end').value,
           travelMode: 'DRIVING'
+
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
           } else {
             window.alert('Directions request failed due to ' + status);
           }
+
         });
       }
+
+
 
 
 
