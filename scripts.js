@@ -106,6 +106,5 @@ function createMarker(place) {
     infowindow.setContent(place.name);
     infowindow.setContent(globalThisLocation[0]);
     infowindow.open(map, this);
-
   });
 }
