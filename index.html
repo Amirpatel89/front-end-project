@@ -21,9 +21,10 @@
 <!-- BOOTSTRAP JS ^ -->
 <!-- custom JS -->
 <script type="text/javascript" src="scripts.js"></script>
+<!-- google place_id -->
 <script src="">="https://maps.googleapis.com/maps/api/place/details/json?placeid=" + `${thisRest.place_id}` + "&key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&libraries=places"</script>
 
-"
+
 </head>
 <body>
   
@@ -31,27 +32,32 @@
         <source src="http://centraarchy.com/new-york-prime/wp-content/uploads/sites/3/2016/09/New-York-Prime.mp4" type="video/mp4">
   </video>
 <!-- The background video ^ -->
-    <div class="text-center overlay-diamond"></div>
-    <div class="overlay-content content">
-      <div class="logo"><h2>THE ST<span class="logo-diamond">&#x2605</span>R FOODIE</h2></div>
-      <div class="slogan">Where Restaurant Stars Matter</div>
-      <div class="item-list">
-        
-      <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
-<!-- Get Directions Button -->
-      <div class="please-enable">Please allow your browser to access your location</div>
-      <div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
-      <div class="name-of-restaurant">
+    <div id="follow">
+        <div class="text-center overlay-diamond"></div>
+        <div class="overlay-content content">
+          <div class="logo"><h2>THE ST<span class="logo-diamond">&#x2605</span>R FOODIE</h2></div>
+          <div class="slogan">Where Restaurant Stars Matter</div>
+          <div class="item-list">
+            
+          <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
+    <!-- Get Directions Button -->
+          <div class="please-enable">Please allow your browser to access your location</div>
+          <div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
+          </div>  
+        </div>
+        <div id='things'>
+          <div class="name-of-restaurant">
+          </div>
+          <div class="rating-of-restaurant">
+          </div>
+          <div class="photo-of-restaurant">
+          </div>
+        </div>
       </div>
-      <div class="rating-of-restaurant">
-      </div>
-      <div class="photo-of-restaurant">
-      </div>
-
 
     
-      </div>
-    </div>
+      
+    
 <div class="review-header">Review</div>
 <div class="review-of-restaurant">
 </div>

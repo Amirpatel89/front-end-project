@@ -16,13 +16,15 @@ Amir
 What We Used:
 HTML5
 CSS3
-Google Places API's
+Google Directions API
+Google Places API
+Google geolocation API
 Javascript
 Jquery
 Bootstrap
 
 
-3 contributions worth adding to this project:
+Three contributions worth adding to this project:
 1. add in a google api for diretions from the users location to the chosen restaurant 
 2. place the google map placed into a modal instead of on the opening page.
 3. .
