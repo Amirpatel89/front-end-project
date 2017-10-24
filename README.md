@@ -1,16 +1,13 @@
-# front-end-project
-Todos
-make fully responsive
-button functionallity 
+front-end-project
 
-The Star Foodie is a web application designed to help users find the best quality resturants nearest to them using google's API's. On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best resurants that pay close attention to detail and excellent customer service are availible for your selection.
+The Star Foodie is a web application designed to help users find the best quality restaurants nearest to them using google's API's. On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best restaurants that pay close attention to detail and excellent customer service are availible for your selection.
 
 concept:
 Use google's geolocation to recieve the users latitude and longtitude origin.
 
-the app will then locate and return all resturants in a set radius with a four star review or better. 
+the app will then locate and return all restaurants in a set radius with a four star review or higher. 
 
-the user will have the choice to search through the list of resturants until they find one of intrest and then get diretions to the resturant.
+the user will have the choice to search through the list of restaurants until they find one of intrest and then get diretions to the resturant.
 
 Team Members:
 Akil 
