@@ -10,29 +10,19 @@
     padding: 0;
     background-size: cover;
 }
-#follow{
-    height: 200px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-}
-#things{
-    position: relative;
-    margin-top: 130px;
-}
 
 .overlay-diamond{
     /*@media screen and (min-width: 1000px)
     css__OrOz4ipTPl…G2fU2A.css:231*/
-    /*height: 26vw;*/
-    /*width: 26vw;*/
+    height: 26vw;
+    width: 26vw;
     max-height: 420px;
     max-width: 420px;
     background: rgba(0,0,0,0.5);
     height: 70vw;
-    /*left: 50%;*/
+    left: 50%;
     position: absolute;
-    /*top: 50%;*/
+    top: 50%;
     transform: translate(-50%,-50%) rotate(-45deg);
     width: 70vw;
     z-index: 0;
@@ -42,9 +32,9 @@
     max-width: 280px;
     position: absolute;
     text-align: center;
-    /*width: 17vw;*/
-    /*left: 50%;*/
-    /*top: 50%;*/
+    width: 17vw;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%,-50%);
     z-index: 0;
 }
@@ -117,34 +107,17 @@ p{
     color:  gold;   
 }
 .review-of-restaurant{
-    color:  #FBAC3D;
+    color:  black;
     background-color: #FBAC3D;
-    text-align: center;
 }
 .please-enable{
     color: #FBAC3D;
 }
 .review-header{
-    color:  #FBAC3D;
+    color:  gold;
     background-color: black;
     text-align: center;
     font-size: 44px;
-}
-#map2{
-    height: 500px;
-}
-#floating-panel{
-    position: absolute;
-    top: 10px;
-    left: 25%;
-    z-index: 5;
-    background-color: #fff;
-    padding: 5px;
-    bottom: 1px solid #999;
-    text-align: center;
-    font-family: 'Roboto', 'sans-serif';
-    line-height: 30;
-    padding-left: 10px;
 }
 .review-of-restaurant{
     color: #FBAC3D;
