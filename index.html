@@ -15,6 +15,10 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&callback=getWhere&libraries=geometry,places"
  async defer></script>
 
+ <script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQotVDHNVSLSw94vXQ2qPBL5NvnEncWwQ&">
+</script>
+
 
 <!-- &callback=findPlaces -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -23,7 +27,8 @@
 <script type="text/javascript" src="scripts.js"></script>
 <script src="">="https://maps.googleapis.com/maps/api/place/details/json?placeid=" + `${thisRest.place_id}` + "&key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&libraries=places"</script>
 
-"
+
+
 </head>
 <body>
   
@@ -37,7 +42,7 @@
       <div class="slogan">Where Restaurant Stars Matter</div>
       <div class="item-list">
         
-      <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
+      <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal" onclick="initMap2()">Get Directions</li></div>
 <!-- Get Directions Button -->
       <div class="please-enable">Please allow your browser to access your location</div>
       <div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
@@ -68,7 +73,48 @@
           <h4 class="modal-title">Fastest Directions</h4>
         </div>
         <div class="modal-body">  
-          <p>The google map should show up in here</p>
+         <!--  <p>The google map should show up in here</p> -->
+              <div id="floating-panel">
+                <b>Start: </b>
+                <select id="start">
+                  <option value="chicago, il">Chicago</option>
+                  <option value="st louis, mo">St Louis</option>
+                  <option value="joplin, mo">Joplin, MO</option>
+                  <option value="oklahoma city, ok">Oklahoma City</option>
+                  <option value="amarillo, tx">Amarillo</option>
+                  <option value="gallup, nm">Gallup, NM</option>
+                  <option value="flagstaff, az">Flagstaff, AZ</option>
+                  <option value="winona, az">Winona</option>
+                  <option value="kingman, az">Kingman</option>
+                  <option value="barstow, ca">Barstow</option>
+                  <option value="san bernardino, ca">San Bernardino</option>
+                  <option value="los angeles, ca">Los Angeles</option>
+                </select>
+                <b>End: </b>
+                <select id="end">
+                  <option value="chicago, il">Chicago</option>
+                  <option value="st louis, mo">St Louis</option>
+                  <option value="joplin, mo">Joplin, MO</option>
+                  <option value="oklahoma city, ok">Oklahoma City</option>
+                  <option value="amarillo, tx">Amarillo</option>
+                  <option value="gallup, nm">Gallup, NM</option>
+                  <option value="flagstaff, az">Flagstaff, AZ</option>
+                  <option value="winona, az">Winona</option>
+                  <option value="kingman, az">Kingman</option>
+                  <option value="barstow, ca">Barstow</option>
+                  <option value="san bernardino, ca">San Bernardino</option>
+                  <option value="los angeles, ca">Los Angeles</option>
+                </select>
+                </div>
+                <div id="map2"></div>
+
+
+
+
+
+
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
@@ -93,8 +139,28 @@
     </div>
     <div class="container footer-text">
     <p><!-- About us -->
-    On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best restaurants that pay close attention to detail and excellent customer service are availible for your selection.</p></div>
+    On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best resurants that pay close attention to detail and excellent customer service are availible for your selection.</p></div>
   </footer>
 <!-- The footer has two container divs ^ -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="container">
+  <div id="row">
+    <div id="Next-restaurant col-xs-12">
+      <button class="btn btn-primary btn-next">Try Something Else</button>
+    </div>
+  </div>
+  
+</div>   -->
+
 </body>
 </html>
