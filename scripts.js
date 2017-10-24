@@ -4,24 +4,46 @@
   var sorted;
   var globalThisLocation = [];
   
+
 $(document).ready(function() {
     $(".go-to-next").hide();
+    $(".review-header").hide();
 });
 
 function getWhere(){
       navigator.geolocation.getCurrentPosition(function(position) {
+      // console.log(`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`);
       var thisLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
       console.log(thisLocation);
       console.log(position);
+      // var defaultLocation = {lat: 36.169941, lng: -115.139830};
+      // console.log(defaultLocation);
       initMap(thisLocation);
       globalThisLocation.push(thisLocation);
       $(".please-enable").hide();
-       $(".go-to-next").show();
+      $(".go-to-next").show();
+
+
+
+
+      // initMap(thisLocation);
+
+     
+    
   },
+
+
   );
 }
 
+// }
+
+
+
 function initMap(location) {
+          // var location = {where};   
+          // lat: 33.8485720, lng: -84.3735560
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: location,
     zoom: 11
@@ -34,22 +56,27 @@ function initMap(location) {
     radius: 50000,
     type: ['restaurant'],
   }, callback);
+
+
 }
 
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       if (results[i].rating >= 4){
+          // sortedArray.push(results[i]);
         createMarker(results[i]);
         restArray.push(results[i]);
+            // for (var b = 0, b < restArray.length; b++)
+        }
       }
     }
-  }
     var reverseSorted = restArray.sort(function(a, b){
     return(a.rating-b.rating)
 })
     sorted = reverseSorted.reverse();
     console.log(sorted);
+
 }
     function showRest () {
             var sortedArray = sorted
@@ -59,13 +86,25 @@ function callback(results, status) {
             $('.go-to-next').click(function(){
               counter = (counter + 1) % sortedArray.length
               var thisRest = (sortedArray[counter]);
+              // console.log(thisRest);
               globalThisRest.push(thisRest);
               console.log(globalThisRest[0]);
               globalCounter.push(counter);
 
+            // $('.go-back').click(function(){
+            //   counter2 = (globalCounter[0] - 1) % sortedArray.length
+            //   var newRest = (sortedArray[counter2]);
+            //   // console.log(newRest);
+            //   globalThisRest.push(newRest);
+            //   console.log(globalThisRest[0]);
+            // });
+
             $('.name-of-restaurant').html(`${globalThisRest[0].name}`);
             $('.rating-of-restaurant').html(`Rating: ${globalThisRest[0].rating} Stars`);
+            $(".review-header").show();
 
+
+         
             var service = new google.maps.places.PlacesService(map);
                 service.getDetails({placeId: `${thisRest.place_id}`}, function(place, status) {
                    if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -75,10 +114,28 @@ function callback(results, status) {
                     var reviewCaption = place.reviews[0].text;
                     $('.review-of-restaurant').html(reviewCaption);
                     console.log(place);
+
+
+
                     };
+
+
+
+
             });
-        });          
+
+        });
+                
 };
+
+                 
+
+
+               
+
+              
+
+
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
@@ -86,8 +143,8 @@ function createMarker(place) {
     map: map,
     position: place.geometry.location
   });
-
   var image = 'https://i.imgur.com/FRSwoOV.gif'
+  
   var marker = new google.maps.Marker({
   map: map,
   position: globalThisLocation[0],
@@ -95,11 +152,27 @@ function createMarker(place) {
   animation: google.maps.Animation.DROP,
   draggable: false,
   optimized:false 
+
+   
   });
 
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);
     infowindow.setContent(globalThisLocation[0]);
     infowindow.open(map, this);
+
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+  
