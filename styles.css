@@ -113,3 +113,14 @@ p{
 .please-enable{
     color: #FBAC3D;
 }
+.review-header{
+    color:  gold;
+    background-color: black;
+    text-align: center;
+    font-size: 44px;
+}
+.review-of-restaurant{
+    color: #FBAC3D;
+    background-color:  black;
+    text-align: center;
+}
