@@ -12,19 +12,14 @@ $(document).ready(function() {
 
 function getWhere(){
       navigator.geolocation.getCurrentPosition(function(position) {
-      // console.log(`lat: ${position.coords.latitude} lng: ${position.coords.longitude}`);
       var thisLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
       console.log(thisLocation);
       console.log(position);
-      // var defaultLocation = {lat: 36.169941, lng: -115.139830};
-      // console.log(defaultLocation);
       initMap(thisLocation);
       globalThisLocation.push(thisLocation);
       $(".please-enable").hide();
       $(".go-to-next").show();
   },
-
-
   );
 }
 
@@ -66,7 +61,6 @@ function callback(results, status) {
             $('.go-to-next').click(function(){
               counter = (counter + 1) % sortedArray.length
               var thisRest = (sortedArray[counter]);
-              // console.log(thisRest);
               globalThisRest.push(thisRest);
               console.log(globalThisRest[0]);
               globalCounter.push(counter);
@@ -82,7 +76,6 @@ function callback(results, status) {
                    if (status == google.maps.places.PlacesServiceStatus.OK) {
                     var photoUrl = place.photos[0].getUrl({maxWidth: 150});
                     $('.photo-of-restaurant').html( `<img src= ${photoUrl}>`);
-                    // console.log(place.photos[5].getUrl({maxWidth: 150}));
                     var reviewCaption = place.reviews[0].text;
                     $('.review-of-restaurant').html(reviewCaption);
                     console.log(place);
