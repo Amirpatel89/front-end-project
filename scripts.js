@@ -22,28 +22,13 @@ function getWhere(){
       globalThisLocation.push(thisLocation);
       $(".please-enable").hide();
       $(".go-to-next").show();
-
-
-
-
-      // initMap(thisLocation);
-
-     
-    
   },
 
 
   );
 }
 
-// }
-
-
-
 function initMap(location) {
-          // var location = {where};   
-          // lat: 33.8485720, lng: -84.3735560
-
   map = new google.maps.Map(document.getElementById('map'), {
     center: location,
     zoom: 11
@@ -56,18 +41,14 @@ function initMap(location) {
     radius: 50000,
     type: ['restaurant'],
   }, callback);
-
-
 }
 
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       if (results[i].rating >= 4){
-          // sortedArray.push(results[i]);
         createMarker(results[i]);
         restArray.push(results[i]);
-            // for (var b = 0, b < restArray.length; b++)
         }
       }
     }
@@ -76,7 +57,6 @@ function callback(results, status) {
 })
     sorted = reverseSorted.reverse();
     console.log(sorted);
-
 }
     function showRest () {
             var sortedArray = sorted
@@ -90,14 +70,6 @@ function callback(results, status) {
               globalThisRest.push(thisRest);
               console.log(globalThisRest[0]);
               globalCounter.push(counter);
-
-            // $('.go-back').click(function(){
-            //   counter2 = (globalCounter[0] - 1) % sortedArray.length
-            //   var newRest = (sortedArray[counter2]);
-            //   // console.log(newRest);
-            //   globalThisRest.push(newRest);
-            //   console.log(globalThisRest[0]);
-            // });
 
             $('.name-of-restaurant').html(`${globalThisRest[0].name}`);
             $('.rating-of-restaurant').html(`Rating: ${globalThisRest[0].rating} Stars`);
@@ -114,28 +86,11 @@ function callback(results, status) {
                     var reviewCaption = place.reviews[0].text;
                     $('.review-of-restaurant').html(reviewCaption);
                     console.log(place);
-
-
-
                     };
-
-
-
-
             });
-
         });
                 
 };
-
-                 
-
-
-               
-
-              
-
-
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
@@ -152,8 +107,6 @@ function createMarker(place) {
   animation: google.maps.Animation.DROP,
   draggable: false,
   optimized:false 
-
-   
   });
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -163,16 +116,3 @@ function createMarker(place) {
 
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-  
