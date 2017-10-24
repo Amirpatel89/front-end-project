@@ -15,14 +15,18 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&callback=getWhere&libraries=geometry,places"
  async defer></script>
 
+ <script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQotVDHNVSLSw94vXQ2qPBL5NvnEncWwQ&">
+</script>
+
 
 <!-- &callback=findPlaces -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- BOOTSTRAP JS ^ -->
 <!-- custom JS -->
 <script type="text/javascript" src="scripts.js"></script>
-<!-- google place_id -->
 <script src="">="https://maps.googleapis.com/maps/api/place/details/json?placeid=" + `${thisRest.place_id}` + "&key=AIzaSyCtqWrXYroKEJA-TxgqRjLZzGsTa4bsRLk&libraries=places"</script>
+
 
 
 </head>
@@ -32,32 +36,27 @@
         <source src="http://centraarchy.com/new-york-prime/wp-content/uploads/sites/3/2016/09/New-York-Prime.mp4" type="video/mp4">
   </video>
 <!-- The background video ^ -->
-    <div id="follow">
-        <div class="text-center overlay-diamond"></div>
-        <div class="overlay-content content">
-          <div class="logo"><h2>THE ST<span class="logo-diamond">&#x2605</span>R FOODIE</h2></div>
-          <div class="slogan">Where Restaurant Stars Matter</div>
-          <div class="item-list">
-            
-          <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal">Get Directions</li></div>
-    <!-- Get Directions Button -->
-          <div class="please-enable">Please allow your browser to access your location</div>
-          <div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
-          </div>  
-        </div>
-        <div id='things'>
-          <div class="name-of-restaurant">
-          </div>
-          <div class="rating-of-restaurant">
-          </div>
-          <div class="photo-of-restaurant">
-          </div>
-        </div>
+    <div class="text-center overlay-diamond"></div>
+    <div class="overlay-content content">
+      <div class="logo"><h2>THE ST<span class="logo-diamond">&#x2605</span>R FOODIE</h2></div>
+      <div class="slogan">Where Restaurant Stars Matter</div>
+      <div class="item-list">
+        
+      <div class="my-list"><li class="btn btn-warning btn-block get-directions" data-toggle="modal" data-target="#myModal" onclick="initMap2()">Get Directions</li></div>
+<!-- Get Directions Button -->
+      <div class="please-enable">Please allow your browser to access your location</div>
+      <div class="my-list"><li class="go-to-next"><a href="#" class="btn btn-warning btn-block" onclick="showRest()">Next Restaurant</a></li></div>
+      <div class="name-of-restaurant">
+      </div>
+      <div class="rating-of-restaurant">
+      </div>
+      <div class="photo-of-restaurant">
       </div>
 
+
     
-      
-    
+      </div>
+    </div>
 <div class="review-header">Review</div>
 <div class="review-of-restaurant">
 </div>
@@ -74,9 +73,28 @@
           <h4 class="modal-title">Fastest Directions</h4>
         </div>
         <div class="modal-body">  
-          <p>The google map should show up in here</p>
+         <!--  <p>The google map should show up in here</p> -->
+              <div id="floating-panel">
+                <b>Start: </b>
+                <select id="start">
+                  <option>Your Location</option>
+                </select>
+                <b>End: </b>
+                <select id="end">
+                  <option value=`${globalThisLocation[0]}`>Your Location</option>
+                  <option value="st louis, mo">Your Restaurant</option>
+                </select>
+                </div>
+                <div id="map2"></div>
+
+
+
+
+
+
+
+
         </div>
-        <div class="modal-footer">
           <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -99,8 +117,28 @@
     </div>
     <div class="container footer-text">
     <p><!-- About us -->
-    On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best restaurants that pay close attention to detail and excellent customer service are availible for your selection.</p></div>
+    On the star foodie we help you find the best dining experience in your area by cross checking the best food reviews to make sure that only the best resurants that pay close attention to detail and excellent customer service are availible for your selection.</p></div>
   </footer>
 <!-- The footer has two container divs ^ -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="container">
+  <div id="row">
+    <div id="Next-restaurant col-xs-12">
+      <button class="btn btn-primary btn-next">Try Something Else</button>
+    </div>
+  </div>
+  
+</div>   -->
+
 </body>
 </html>
